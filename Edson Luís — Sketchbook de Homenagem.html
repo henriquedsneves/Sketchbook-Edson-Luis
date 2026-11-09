@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Edson Luís — Sketchbook de Homenagem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Inter:wght@400;600&family=UnifrakturCook:wght@700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#e8dcc2;--paper2:#dccfae;--ink:#262a3a;--pencil:#6b665b;--tape:#7fa3a0;--tape2:#d6b45a;--edge:#b9a77d;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font:400 1.22rem/1.75 Kalam,"Patrick Hand",cursive;background:#8d7f62 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .25 0 0 0 0 .15 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+body.read,body.read *{font-family:Inter,Roboto,system-ui,sans-serif!important;line-height:1.7}
+.ctl{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;padding:.6rem;background:rgba(38,42,58,.92)}
+.ctl button,.nav button,.ctl select{font:inherit;font-size:1rem;color:var(--ink);background:var(--paper);border:2px solid var(--edge);border-radius:4px 10px 5px 9px;padding:.2rem .9rem;cursor:pointer}
+.ctl button[aria-pressed=true]{background:var(--tape2)}
+.ctl button:focus-visible,a:focus-visible{outline:3px solid #fff;outline-offset:2px}
+main{max-width:760px;margin:0 auto;padding:1.5rem .8rem 4rem}
+.pg{position:relative;margin:2.2rem 0;padding:2.6rem 2rem 2.4rem 3.2rem;background:linear-gradient(transparent 1.74rem,rgba(80,110,150,.18) 1.74rem 1.8rem) 0 0/100% 2.14rem,var(--paper);border-radius:3px 7px 4px 8px;box-shadow:0 2px 0 var(--paper2),0 5px 0 var(--edge),0 12px 24px rgba(0,0,0,.4);transform:rotate(-.5deg)}
+.pg:nth-of-type(even){transform:rotate(.45deg)}
+.pg::before{content:"";position:absolute;left:1.9rem;top:0;bottom:0;border-left:2px solid rgba(170,60,50,.35)}
+.pg::after{content:"";position:absolute;left:.7rem;top:2rem;width:.7rem;height:.7rem;border-radius:50%;background:#8d7f62;box-shadow:0 5rem #8d7f62,0 10rem #8d7f62,inset 1px 1px 2px #0006}
+.num{font:700 1.15rem Caveat,cursive;color:var(--pencil)}
+h1,h2{font-family:Caveat,cursive;font-weight:700;line-height:1.1;margin:.1rem 0 1rem}
+h2{font-size:clamp(1.9rem,6vw,2.7rem)}
+h1{font-size:clamp(2.6rem,10vw,4.6rem)}
+p{margin:0 0 1rem}
+.when{font:700 1.5rem Caveat,cursive;color:var(--pencil)}
+.pol{position:relative;float:right;width:min(250px,100%);margin:.3rem 0 1rem 1.4rem;padding:.7rem .7rem .5rem;background:#fbf8f0;box-shadow:0 4px 12px rgba(0,0,0,.35);transform:rotate(2.5deg)}
+.pg:nth-of-type(even) .pol{transform:rotate(-2deg)}
+.pol svg{display:block;width:100%;background:#efe8d6;stroke:var(--ink);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pol svg text{fill:var(--ink);stroke:none;font:700 26px Caveat,cursive}
+.pol figcaption{font:500 .95rem/1.25 Caveat,cursive;font-size:1.1rem;color:var(--pencil);margin-top:.4rem}
+.pol::before{content:"";position:absolute;top:-.8rem;left:50%;width:5.5rem;height:1.5rem;margin-left:-2.7rem;background:var(--tape);opacity:.85;transform:rotate(-3deg);clip-path:polygon(0 8%,4% 0,8% 10%,12% 0,100% 0,96% 50%,100% 100%,0 100%,4% 50%)}
+.pg:nth-of-type(even) .pol::before{background:var(--tape2)}
+.pen{display:inline-block;width:.5em;height:1em;vertical-align:-.15em;margin-left:1px;background:linear-gradient(100deg,transparent 40%,var(--ink) 40% 60%,transparent 60%);animation:bl .7s steps(2) infinite}
+.pen:empty{}
+@keyframes bl{50%{opacity:0}}
+.h{opacity:0}
+.done .pen,.instant .pen{display:none}
+.pg::after,.end{}
+.end{text-align:center;font:500 1.4rem Caveat,cursive;color:#e8dcc2}
+.hero{text-align:left}
+.pg{display:none;transform-origin:left center;margin:1.2rem 0}
+.pg.cur{display:block;transform:none}
+.pg.out{display:block;animation:fo .38s ease-in forwards}
+.pg.in{display:block;animation:fi .5s ease-out}
+.pg.out.back{animation-name:fob}
+.pg.in.back{animation-name:fib}
+@keyframes fo{to{transform:perspective(1600px) rotateY(-95deg);filter:brightness(.7);opacity:.2}}
+@keyframes fob{to{transform:perspective(1600px) rotateY(95deg);filter:brightness(.7);opacity:.2}}
+@keyframes fi{from{transform:perspective(1600px) rotateY(80deg);filter:brightness(.75)}to{transform:none}}
+@keyframes fib{from{transform:perspective(1600px) rotateY(-80deg);filter:brightness(.75)}to{transform:none}}
+h1:focus,h2:focus{outline:none}
+.nav{position:sticky;bottom:env(safe-area-inset-bottom,0px);z-index:10;display:flex;gap:.8rem;justify-content:center;align-items:center;padding:.7rem;background:rgba(38,42,58,.92);color:#e8dcc2;font-size:1.05rem}
+.nav button:disabled{opacity:.4;cursor:default}
+.ctl select{padding:.2rem .5rem}
+@media(prefers-reduced-motion:reduce){.pg.in,.pg.out{animation:none}}
+@media print{.pg{display:block!important;animation:none!important}.nav{display:none}}
+:root{--ink:#1f1b14;--pencil:#5a5143}
+body{background-color:#4a4234;font:400 1.08rem/1.55 "Old Standard TT",Georgia,serif}
+main{display:grid;grid-template-columns:minmax(0,1fr);align-items:start;max-width:920px}
+.pg{grid-area:1/1;backface-visibility:hidden;will-change:transform;columns:2 16rem;column-gap:2rem;column-rule:1px solid rgba(31,27,20,.4);padding:1.4rem 2rem 1.3rem;border-radius:1px;background:linear-gradient(90deg,transparent 49.7%,rgba(90,70,30,.16) 50%,transparent 50.3%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .15 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(ellipse at 50% 40%,#eee4c6 55%,#d3c192 100%);box-shadow:0 0 0 1px #a8946a,0 12px 34px rgba(0,0,0,.55),inset 0 0 70px rgba(120,85,30,.38)}
+.pg::before{content:"A Gazeta da Memória";position:static;display:block;column-span:all;border:0;border-bottom:3px double var(--ink);text-align:center;font:700 clamp(2rem,7vw,3.4rem)/1.1 UnifrakturCook,serif;padding-bottom:.3rem}
+.pg::after{content:"Edição de homenagem, Rio de Janeiro, 1968";position:static;display:block;column-span:all;width:auto;height:auto;border-radius:0;background:none;box-shadow:none;border-top:1px solid var(--ink);margin-top:.6rem;padding-top:.3rem;text-align:center;font:italic .9rem "Old Standard TT",serif;color:var(--pencil)}
+.num{column-span:all;text-align:center;font:italic 400 1rem "Old Standard TT",serif;color:var(--pencil);border-bottom:1px solid var(--ink);padding:.25rem 0;margin-bottom:.4rem}
+h1,h2{font-family:"Old Standard TT",Georgia,serif;column-span:all;text-align:center;line-height:1.08;margin:.5rem 0 1rem;padding-bottom:.5rem;border-bottom:1px solid var(--ink)}
+h2{font-size:clamp(1.8rem,5.2vw,2.9rem)}
+h1{font-size:clamp(2.2rem,8vw,3.8rem)}
+.when{column-span:all;text-align:center;font:italic 400 1.25rem "Old Standard TT",serif;margin-bottom:1rem}
+.hero{column-count:1}
+p{text-align:justify;hyphens:auto;margin:0 0 .8rem}
+.pol,.pg:nth-of-type(n) .pol{float:none;width:100%;margin:0 0 1rem;transform:none;box-shadow:none;border:1px solid var(--ink);padding:5px;background:#e6dbbd;break-inside:avoid}
+.pol::before{display:none}
+.pol svg{filter:grayscale(1) contrast(1.15);background:#d9cfb2 radial-gradient(rgba(0,0,0,.22) 1px,transparent 1.6px) 0 0/4px 4px}
+.pol svg text{font:700 22px "Old Standard TT",serif}
+.pol figcaption{font:italic 400 .88rem/1.3 "Old Standard TT",serif;border-top:1px solid var(--ink);padding-top:.3rem;margin-top:.4rem;color:var(--ink)}
+.pol+p::first-letter{float:left;font:700 3.3rem/.82 "Old Standard TT",serif;padding:.08em .1em 0 0}
+.pg.out{display:block;z-index:3;animation:tf .85s cubic-bezier(.55,.1,.35,1) forwards}
+.pg.in{display:block;z-index:2;animation:tu .85s ease-out}
+.pg.in.back{z-index:3;animation:tb .85s cubic-bezier(.35,.1,.55,1)}
+.pg.out.back{z-index:2;animation:td .85s ease-in forwards}
+@keyframes tf{0%{transform:perspective(2400px) rotateY(0)}50%{transform:perspective(2400px) rotateY(-55deg) skewY(-1.5deg);filter:brightness(.82)}100%{transform:perspective(2400px) rotateY(-100deg);filter:brightness(.6)}}
+@keyframes tb{0%{transform:perspective(2400px) rotateY(-100deg);filter:brightness(.6)}50%{transform:perspective(2400px) rotateY(-55deg) skewY(-1.5deg);filter:brightness(.82)}100%{transform:none}}
+@keyframes tu{from{transform:scale(.965);filter:brightness(.75)}to{transform:none}}
+@keyframes td{to{transform:scale(.965);filter:brightness(.75)}}
+@media(prefers-reduced-motion:reduce){.pg.in,.pg.out,.pg.in.back,.pg.out.back{animation:none}}
+@media(max-width:560px){.pg.pg{padding:1rem 1rem 1rem}}
+@media(max-width:560px){.pg{padding:2.2rem 1.1rem 2rem 2.6rem}.pol{float:none;margin:0 auto 1.2rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pen{animation:none}}
+@media print{
+ body{background:#fff}.ctl,.end{display:none}
+ main{max-width:none;padding:0}
+ .pg{break-inside:avoid;page-break-after:always;transform:none!important;box-shadow:none;margin:0 0 1rem;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .pen{display:none}.h{opacity:1}
+}
+</style>
+</head>
+<body>
+<nav class="ctl" aria-label="Controles">
+ <button id="bAud" aria-pressed="false" aria-label="Ouvir audiolivro com leitura contínua das páginas">Ouvir audiolivro</button>
+ <select id="sRate" aria-label="Velocidade da voz"><option value="0.85">Voz lenta</option><option value="1" selected>Voz normal</option><option value="1.25">Voz rápida</option></select>
+ <button id="bSkip" aria-pressed="false">Pular animação</button>
+ <button id="bRead" aria-pressed="false">Fonte legível</button>
+ <button id="bSnd" aria-pressed="false">Som: desligado</button>
+ <button id="bPrint">Imprimir</button>
+</nav>
+<main id="book">
+ <section class="pg hero" id="p0">
+  <div class="num">Sketchbook de homenagem</div>
+  <h1 data-w>Edson Luís de Lima Souto</h1>
+  <div class="when" data-w>Belém, 1950 — Rio de Janeiro, 1968</div>
+  <p data-w>Vire as páginas com os botões abaixo, com as setas do teclado ou deslizando. Cada uma guarda um pedaço da história de um estudante de 18 anos.</p>
+ </section>
+</main>
+<div class="nav" role="navigation" aria-label="Páginas"><button id="bPrev">‹ Anterior</button><span id="pgn" aria-live="polite">Capa</span><button id="bNext">Próxima ›</button></div>
+<script>
+const S=(x)=>`<svg viewBox="0 0 200 120" role="img" aria-hidden="true">${x}</svg>`;
+const D=[
+["A Origem no Pará","Mapa do Brasil com a rota de Belém (PA) ao Rio de Janeiro (RJ)",S('<path d="M40 30l40-10 40 20 30 30-20 30-40 10-30-30z"/><path d="M85 35Q130 50 100 95" stroke-dasharray="5 5"/><circle cx="85" cy="35" r="4"/><circle cx="100" cy="95" r="4"/><text x="92" y="30">Belém</text><text x="118" y="100">Rio</text>'),
+`Edson Luís nasceu em Belém do Pará, em 24 de fevereiro de 1950, no bairro humilde do Jurunas. Filho de lavadeira, veio de uma família de poucos recursos financeiros. Decidido a concluir o ensino secundário e alimentar o sonho de cursar Medicina, mudou-se sozinho para o Rio de Janeiro. Sua história reflete a realidade de milhares de jovens brasileiros que precisavam migrar de seus estados de origem em busca de oportunidades de estudo e de uma vida melhor.`],
+["O Estudante e o Restaurante Calabouço","Fachada do Restaurante Universitário do Calabouço",S('<path d="M30 100V50h140v50zM30 50l70-25 70 25M60 100V70h20v30M120 70h30v20h-30"/><text x="72" y="45">Calabouço</text>'),
+`Nome: Edson Luís de Lima Souto
+Nascimento: 24/02/1950 (Belém, PA) | Morte: 28/03/1968 (18 anos, Rio de Janeiro, RJ)
+Ocupação: Estudante secundarista (Colégio Estadual Marechal Rondon)
+Em 1968, o Brasil vivia sob o governo do general Artur da Costa e Silva. Sem recursos financeiros, Edson dependia dos serviços do Restaurante do Calabouço para se alimentar. As instalações do local estavam precárias, o preço das refeições havia subido e a qualidade caíra drasticamente. O restaurante tornou-se o ponto central dos protestos secundaristas por melhorias na educação pública.`],
+["O Crime de 28 de Março","Faixas de protesto e pratos vazios",S('<path d="M40 100V25M160 100V25M40 30h120v30H40z"/><text x="62" y="52">Comida digna</text><circle cx="100" cy="92" r="15"/><circle cx="100" cy="92" r="8"/>'),
+`No final da tarde de 28 de março de 1968, cerca de 300 estudantes realizavam uma manifestação relâmpago no Calabouço exigindo a melhoria das refeições. A Polícia Militar da Guanabara chegou ao local para reprimir o protesto com violência. Com o avanço das tropas equipadas com cassetetes e armas de fogo, o comandante da tropa, tenente Aloísio Raposo, disparou sua arma à queima-roupa. Edson Luís foi atingido no peito por um tiro de pistola calibre .45 e morreu no local, desarmado.`],
+["“Mataram um estudante… e se fosse seu filho?”","O cortejo com o corpo coberto pela bandeira do Brasil",S('<path d="M45 62h110l-8 14H53z"/><circle cx="55" cy="92" r="7"/><circle cx="85" cy="95" r="7"/><circle cx="115" cy="95" r="7"/><circle cx="145" cy="92" r="7"/><path d="M45 100h110M60 40v22" /><path d="M60 40h30v14H60z"/>'),
+`Temendo que a polícia sumisse com o corpo para encobrir o homicídio, os próprios estudantes carregaram Edson Luís nos braços até o prédio da Assembleia Legislativa da Guanabara (ALERJ). O corpo foi velado no saguão público em clima de imensa comoção. Durante a noite, milhares de pessoas compareceram. No dia seguinte, mais de 50 mil pessoas acompanharam o cortejo fúnebre até o Cemitério de São João Batista, sob forte comoção e gritos de protesto contra a ditadura.`],
+["A Denúncia na Sociedade","Colagem de manchetes de jornais da época",S('<path d="M30 20h140v85H30zM40 30h60v10H40zM40 48h120M40 58h120M40 68h75M125 68h35v28h-35zM40 80h75M40 90h75"/>'),
+`Como a censura prévia à imprensa ainda não atingira seu nível máximo, os jornais cobriram amplamente a tragédia. Fotos chocantes da ação policial e do velório estamparam as primeiras páginas do país. A comoção chegou aos teatros cariocas: durante apresentações de peças na mesma noite do crime, atores interromperam os espetáculos para anunciar a morte do estudante ao público, transformando palcos em atos de denúncia e indignação.`],
+["A Resposta das Ruas","Passeata dos 100 Mil na Avenida Rio Branco, 26 de junho de 1968",S('<path d="M30 105h140"/><circle cx="50" cy="90" r="6"/><circle cx="80" cy="92" r="6"/><circle cx="110" cy="90" r="6"/><circle cx="140" cy="92" r="6"/><path d="M50 84V45M80 86V30M110 84V50M140 86V35M40 45h24M68 30h26M98 50h24M128 35h26"/><text x="55" y="22">100 mil</text>'),
+`O assassinato de Edson Luís desencadeou uma onda de protestos por todo o país. O ápice dessa mobilização ocorreu em 26 de junho de 1968, com a Passeata dos 100 Mil, no Rio de Janeiro. A manifestação reuniu estudantes, artistas (como Chico Buarque e Caetano Veloso), intelectuais, religiosos e cidadãos em um ato massivo contra a violência policial, a censura e a ditadura militar, tornando-se a maior manifestação pública do período.`],
+["“Caminhando e Cantando”","Violão com partituras e versos soltos pelo papel",S('<ellipse cx="85" cy="82" rx="30" ry="24"/><circle cx="85" cy="82" r="7"/><path d="M110 66l62-48M168 14l12 10M150 100h30M150 108h24M30 30q10-8 20 0M40 22v18"/>'),
+`A morte de Edson Luís serviu de combustível para a produção cultural de protesto. A canção “Pra Não Dizer Que Não Falei das Flores” (Caminhando), composta por Geraldo Vandré em 1968, tornou-se o hino da resistência estudantil e democrática. Seus versos denunciavam o militarismo e chamavam a sociedade à ação. Poetas, artistas plásticos e dramaturgos usaram suas obras para homenagear Edson e manter viva a indignação contra o regime.`],
+["A Dor de uma Mãe","Telegrama antigo e uma vela acesa",S('<path d="M90 55h20v50H90zM100 55v-8M100 44q-9-12 0-24q9 12 0 24"/><path d="M25 35h45v30H25zM25 35l22 17 23-17"/>'),
+`A notícia do assassinato tomou a família de surpresa no Pará. Sua mãe, dona Maria de Lourdes de Lima Souto, ficou devastada ao saber que o filho fora morto tão longe de casa enquanto apenas tentava estudar e se alimentar. Ao retornar a Belém para o sepultamento, o corpo foi recebido com novas manifestações. A dor de dona Maria tornou-se o símbolo da dor de centenas de mães brasileiras cujos filhos foram encarcerados, torturados ou executados pelo Estado.`],
+["A Sombra do AI-5","Capa do Ato Institucional nº 5 com carimbos de censura",S('<path d="M50 22h100v78H50z"/><text x="76" y="62">AI-5</text><path d="M62 74h76M62 84h50"/><g transform="rotate(-14 100 90)"><path d="M62 88h76v18H62z"/><text x="68" y="104" style="font-size:18px">CENSURADO</text></g>'),
+`O aumento dos protestos populares desencadeados pela morte de Edson Luís levou a ditadura militar a reagir com autoritarismo extremo. Em 13 de dezembro de 1968, o governo promulgou o Ato Institucional nº 5 (AI-5). O ato fechou o Congresso Nacional, institucionalizou a censura prévia, suspendeu o habeas corpus para crimes políticos e iniciou a fase mais sombria da ditadura, marcada por torturas e desaparecimentos forçados.`],
+["A Verdade Reconhecida pelo Estado","Representação do relatório da Comissão Nacional da Verdade",S('<path d="M100 22v72M60 36h80M60 36l-15 32h30zM140 36l-15 32h30zM75 96h50"/><text x="70" y="115" style="font-size:16px">CNV · Lei 12.528</text>'),
+`Com a criação da Comissão Nacional da Verdade (CNV) pela Lei nº 12.528/2011, o Estado brasileiro investigou formalmente as graves violações de direitos humanos da ditadura. O relatório final da CNV reconfirmou que Edson Luís de Lima Souto foi vítima de execução arbitrária praticada por agentes do Estado. O documento destacou que o jovem estava desarmado e exercia o direito de manifestação, responsabilizando diretamente as forças de segurança.`],
+["Homenagens e Preservação da Memória","Busto em bronze de Edson Luís e placa de rua",S('<circle cx="80" cy="45" r="18"/><path d="M45 100q0-30 35-30t35 30zM40 100h80v10H40zM135 40h45v22h-45zM157 62v40"/><text x="138" y="56" style="font-size:15px">Edson Luís</text>'),
+`Com a redemocratização, a memória de Edson Luís passou a ser resgatada no espaço público. No local onde existia o Restaurante do Calabouço, no Rio de Janeiro, foi erguido um busto em sua homenagem. Em Belém e em diversas cidades brasileiras, praças, ruas e grêmios estudantis receberam seu nome, garantindo que o espaço urbano continue a lembrar o preço pago pela conquista da democracia.`],
+["“Um estudante morto é uma pátria ferida”","Estudante de hoje com um livro; ao fundo, a sombra de Edson Luís",S('<circle cx="75" cy="38" r="12"/><path d="M55 105V60h40v45M92 70h28v20H92z"/><path d="M130 105V50" stroke-dasharray="3 5"/><circle cx="145" cy="38" r="12" stroke-dasharray="3 5"/><path d="M125 105V60h40v45" stroke-dasharray="3 5"/>'),
+`Edson Luís era um jovem secundarista — da mesma idade dos estudantes do ensino médio de hoje. Sua história demonstra a força da juventude na defesa dos direitos sociais e da liberdade. A luta de Edson por refeições dignas e educação de qualidade lembra que a democracia deve ser continuamente protegida. Lembrar de seu nome não é apenas olhar para o passado, mas reafirmar o compromisso permanente com os direitos humanos, a memória e a justiça no Brasil.`]
+];
+const book=document.getElementById("book");
+D.forEach(([t,cap,svg,txt],i)=>{
+ const s=document.createElement("section");s.className="pg";s.id="p"+(i+1);
+ s.innerHTML=`<div class="num">Página ${i+1}</div><h2 data-w></h2><figure class="pol">${svg}<figcaption>Ilustração: ${cap}</figcaption></figure>`+txt.split("\n").map(()=>"<p data-w></p>").join("");
+ const w=[...s.querySelectorAll("[data-w]")];
+ w[0].dataset.t=t;txt.split("\n").forEach((l,k)=>w[k+1].dataset.t=l);
+ book.appendChild(s);
+});
+document.querySelectorAll("#p0 [data-w]").forEach(e=>e.dataset.t=e.textContent);
+const cr=document.createElement("section");cr.className="pg";cr.id="pc";
+cr.innerHTML='<div class="num">Créditos</div><h2 data-w></h2><p data-w></p>';
+const cw=cr.querySelectorAll("[data-w]");cw[0].dataset.t="Criado por Henrique de Sousa Neves";cw[1].dataset.t="Sketchbook digital em memória de Edson Luís de Lima Souto, estudante secundarista (1950–1968).";
+book.appendChild(cr);
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+let instant=reduce,snd=false,ac,amb;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function fill(e){e.textContent=e.dataset.t;e.classList.add("done")}
+async function write(e){
+ const t=e.dataset.t;
+ if(instant||e.dataset.s)return fill(e);
+ e.dataset.s=1;
+ const v=document.createElement("span"),p=document.createElement("i"),h=document.createElement("span");
+ p.className="pen";h.className="h";e.textContent="";e.append(v,p,h);
+ for(let i=0;i<t.length;i++){
+  if(instant||!e.closest(".cur"))return fill(e);
+  v.textContent+=t[i];h.textContent=t.slice(i+1);
+  const c=t[i];
+  await sleep(c=="."?170:c==","?90:20+Math.random()*22);
+ }
+ fill(e);
+}
+async function run(sec){
+ for(const e of sec.querySelectorAll("[data-w]"))await write(e);
+}
+function paper(){
+ if(!snd)return;
+ ac=ac||new AudioContext();
+ const n=ac.sampleRate*.28,b=ac.createBuffer(1,n,ac.sampleRate),d=b.getChannelData(0);
+ for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/n,2.5);
+ const s=ac.createBufferSource(),f=ac.createBiquadFilter(),g=ac.createGain();
+ s.buffer=b;f.type="bandpass";f.frequency.value=2600;g.gain.value=.35;
+ s.connect(f).connect(g).connect(ac.destination);s.start();
+}
+const pages=[...document.querySelectorAll(".pg")];let cur=-1,aud=false,tok=0;
+const label=i=>i==0?"Capa":i==pages.length-1?"Créditos":"Página "+i+" de "+(pages.length-2);
+function stopAud(){tok++;if(window.speechSynthesis)speechSynthesis.cancel()}
+function aOff(){aud=false;const b=document.getElementById("bAud");b.setAttribute("aria-pressed","false");b.textContent="Ouvir audiolivro"}
+function go(n){
+ if(n<0||n>=pages.length||n==cur||Date.now()<(go.lk||0))return;go.lk=Date.now()+(reduce?0:700);
+ const old=pages[cur],nw=pages[n],back=n<cur;
+ stopAud();
+ if(old){old.classList.remove("cur");old.classList.add("out");old.classList.toggle("back",back);setTimeout(()=>old.classList.remove("out","back"),reduce?0:850);paper()}
+ nw.classList.toggle("back",back);nw.classList.add("cur","in");
+ setTimeout(()=>nw.classList.remove("in","back"),reduce?0:850);
+ cur=n;document.getElementById("pgn").textContent=label(n);
+ document.getElementById("bPrev").disabled=n==0;document.getElementById("bNext").disabled=n==pages.length-1;
+ scrollTo(0,0);run(nw);
+ const h=nw.querySelector("h1,h2");h.tabIndex=-1;h.focus({preventScroll:true});
+ if(aud)setTimeout(playPage,reduce?0:450);
+}
+function pageText(i){
+ const s=pages[i],r=[],h=s.querySelector("h1,h2");
+ if(i>0&&i<pages.length-1)r.push("Página "+i+".");
+ r.push(h.dataset.t);
+ const cap=s.querySelector("figcaption");if(cap)r.push(cap.textContent+".");
+ s.querySelectorAll("p[data-w],.when").forEach(e=>r.push(e.dataset.t));
+ return r;
+}
+function speak(list,k,t){
+ if(t!=tok)return;
+ if(k>=list.length){if(cur<pages.length-1)go(cur+1);else aOff();return}
+ const u=new SpeechSynthesisUtterance(list[k]);
+ u.lang="pt-BR";u.rate=+document.getElementById("sRate").value;
+ const v=speechSynthesis.getVoices().find(v=>/^pt[-_]BR/i.test(v.lang));if(v)u.voice=v;
+ u.onend=()=>speak(list,k+1,t);
+ speechSynthesis.speak(u);
+}
+function playPage(){
+ if(!aud)return;
+ stopAud();const t=tok;
+ pages[cur].querySelectorAll("[data-w]").forEach(e=>{if(!e.classList.contains("done")){e.dataset.s=1;fill(e)}});
+ speak(pageText(cur),0,t);
+}
+document.getElementById("bAud").onclick=function(){
+ if(!window.speechSynthesis){alert("Seu navegador não oferece leitura em voz alta.");return}
+ if(aud){aOff();stopAud();return}
+ aud=true;this.setAttribute("aria-pressed","true");this.textContent="Parar audiolivro";playPage();
+};
+document.getElementById("sRate").onchange=()=>playPage();
+document.getElementById("bNext").onclick=()=>go(cur+1);
+document.getElementById("bPrev").onclick=()=>go(cur-1);
+addEventListener("keydown",e=>{if(e.target.tagName=="SELECT")return;if(e.key=="ArrowRight")go(cur+1);if(e.key=="ArrowLeft")go(cur-1)});
+let tx=0;addEventListener("touchstart",e=>{tx=e.changedTouches[0].clientX},{passive:true});
+addEventListener("touchend",e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>80)go(cur+(d<0?1:-1))});
+const $=id=>document.getElementById(id);
+$("bSkip").onclick=function(){
+ instant=!instant;this.setAttribute("aria-pressed",instant);
+ if(instant)document.querySelectorAll("[data-w]").forEach(e=>{if(!e.classList.contains("done"))fill(e)});
+};
+$("bRead").onclick=function(){
+ const on=document.body.classList.toggle("read");this.setAttribute("aria-pressed",on);
+};
+$("bSnd").onclick=function(){
+ snd=!snd;this.setAttribute("aria-pressed",snd);this.textContent="Som: "+(snd?"ligado":"desligado");
+ if(snd){
+  ac=ac||new AudioContext();ac.resume();
+  const g=ac.createGain(),f=ac.createBiquadFilter();g.gain.value=.025;f.frequency.value=500;
+  amb=[110,164.8,220.5].map(x=>{const o=ac.createOscillator();o.frequency.value=x;o.connect(f);o.start();return o});
+  f.connect(g).connect(ac.destination);amb.g=g;
+ }else if(amb){amb.forEach(o=>o.stop());amb=null}
+};
+$("bPrint").onclick=()=>print();
+addEventListener("beforeprint",()=>document.querySelectorAll("[data-w]").forEach(e=>{if(!e.classList.contains("done")){e.dataset.s=1;fill(e)}}));
+if(instant)document.querySelectorAll("[data-w]").forEach(fill);
+go(0);
+</script>
+</body>
+</html>
